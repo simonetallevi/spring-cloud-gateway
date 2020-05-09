@@ -1,0 +1,51 @@
+buildscript {
+    ext {
+        kotlin_version = '1.3.72'
+        spring_boot_version = '2.2.1.RELEASE'
+        kerberosVersion = '1.0.1.RELEASE'
+    }
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version" // Required for Kotlin integration
+        classpath "org.jetbrains.kotlin:kotlin-allopen:$kotlin_version"
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:$spring_boot_version"
+        classpath "org.jetbrains.kotlin:kotlin-noarg:$kotlin_version"
+    }
+}
+
+
+apply plugin: 'kotlin' // Required for Kotlin integration
+apply plugin: "kotlin-spring"
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'it.try2catch.spingcloudgateway.world'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+    jcenter()
+    mavenCentral()
+    mavenLocal()
+    maven { url "https://repo.spring.io/milestone" }
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.session:spring-session-jdbc'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version" // Required for Kotlin integration
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "11"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "11"
+}
+
+test {
+    useJUnitPlatform()
+}

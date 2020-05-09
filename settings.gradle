@@ -1,0 +1,5 @@
+rootProject.name = 'sping-cloud-gateway'
+
+include 'micro-service-hello'
+include 'micro-service-world'
+include 'apigateway'
