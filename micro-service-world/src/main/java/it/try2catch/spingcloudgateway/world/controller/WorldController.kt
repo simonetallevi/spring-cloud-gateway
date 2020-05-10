@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping(produces = [MediaType.APPLICATION_JSON_VALUE])
 class WorldController{
 
-    @GetMapping("/api/v1/salutation")
+    @GetMapping("/world/api/v1/salutation")
     @ResponseStatus(HttpStatus.OK)
     fun salutation(): Map<String, String> {
-        return mapOf("salutation" to "World");
+        return mapOf("salutation" to "Hello World");
     }
 }
