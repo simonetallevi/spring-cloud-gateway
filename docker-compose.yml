@@ -1,0 +1,15 @@
+version: '3'
+services:
+  apigateway:
+    build: apigateway/.
+    links:
+      - world
+      - hello
+    ports:
+      - "8080:8080"
+
+  world:
+    build: micro-service-world/.
+
+  hello:
+    build: micro-service-hello/.

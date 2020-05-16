@@ -13,8 +13,8 @@ import java.net.URI
 class RouteConfig {
 
     companion object {
-        private val WORLD_URI: URI = URI.create("http://localhost:8081")
-        private val HELLO_URI: URI = URI.create("http://localhost:8082")
+        private val WORLD_URI: URI = URI.create("http://world:8081")
+        private val HELLO_URI: URI = URI.create("http://hello:8082")
     }
 
     @Bean

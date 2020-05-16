@@ -19,7 +19,7 @@ apply plugin: 'kotlin' // Required for Kotlin integration
 apply plugin: "kotlin-spring"
 
 group = 'it.try2catch.spingcloudgateway'
-version = '0.0.1-SNAPSHOT'
+version = '1.0'
 sourceCompatibility = '11'
 
 repositories {
