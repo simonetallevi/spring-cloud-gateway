@@ -9,15 +9,15 @@ import javax.websocket.server.PathParam
 @RequestMapping(produces = [MediaType.APPLICATION_JSON_VALUE])
 class HelloController {
 
-    @GetMapping("/hello/api/v1/salutation/{name}")
+    @GetMapping("/hello/api/v1/salutation/en/{name}")
     @ResponseStatus(HttpStatus.OK)
-    fun salutation(@PathVariable name: String): Map<String, String> {
+    fun salutationEn(@PathVariable name: String): Map<String, String> {
         return mapOf("salutation" to "Hello $name");
     }
 
-    @GetMapping("/hello/api/v1/error")
+    @GetMapping("/hello/api/v1/salutation/it/{name}")
     @ResponseStatus(HttpStatus.OK)
-    fun error(): Map<String, String> {
-        return mapOf("salutation" to "ERROR!");
+    fun salutationIt(@PathVariable name: String): Map<String, String> {
+        return mapOf("salutation" to "Ciao $name");
     }
 }

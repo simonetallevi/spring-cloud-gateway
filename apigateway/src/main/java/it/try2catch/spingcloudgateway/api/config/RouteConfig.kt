@@ -23,32 +23,21 @@ class RouteConfig {
                 .route { p: PredicateSpec ->
                     p.method(HttpMethod.GET)
                             .and()
-                            .path("/world/api/v1/salutation")
+                            .path("/world/api/v1/salutation/it")
                             .uri(WORLD_URI)
                 }
                 .route { p: PredicateSpec ->
                     p.method(HttpMethod.GET)
                             .and()
-                            .path("/hello/api/v1/salutation/{name}")
+                            .path("/hello/api/v1/salutation/it/{name}")
                             .uri(HELLO_URI)
                 }
                 .route { p: PredicateSpec ->
                     p.method(HttpMethod.GET)
                             .and()
-                            .path("/hello/{name}")
+                            .path("/ciao/{name}")
                             .filters {
-                                it.rewritePath("/hello/(.*)", "/hello/api/v1/salutation/$1")
-                            }
-                            .uri(HELLO_URI)
-                }
-                .route { p: PredicateSpec ->
-                    p.method(HttpMethod.GET)
-                            .and()
-                            .path("/hello-error/{name}")
-                            .filters { it ->
-                                it.circuitBreaker {
-                                    it.fallbackUri = URI.create("forward:/hello/api/v1/error")
-                                }
+                                it.rewritePath("/ciao/(.*)", "/hello/api/v1/salutation/it/$1")
                             }
                             .uri(HELLO_URI)
                 }

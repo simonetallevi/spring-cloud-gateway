@@ -1,0 +1,21 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+
+        - id: world_v1_salutation_en
+          uri: http://localhost:8081
+          predicates:
+            - Path=/world/api/v1/salutation/en
+
+        - id: hello_v1_salutation_en
+          uri: http://localhost:8082
+          predicates:
+            - Path=/hello/api/v1/salutation/en/{name}
+
+        - id: hello_rewrite_en
+          uri: http://localhost:8082
+          predicates:
+            - Path=/hello/{name}
+          filters:
+            - RewritePath=/hello/(.*), /hello/api/v1/salutation/en/$1
