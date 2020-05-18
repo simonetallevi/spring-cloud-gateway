@@ -37,7 +37,8 @@ class RouteConfig {
                             .and()
                             .path("/ciao/{name}")
                             .filters {
-                                it.rewritePath("/ciao/(.*)", "/hello/api/v1/salutation/it/$1")
+                                it.rewritePath("/ciao/(.*)",
+                                        "/hello/api/v1/salutation/it/$1")
                             }
                             .uri(HELLO_URI)
                 }

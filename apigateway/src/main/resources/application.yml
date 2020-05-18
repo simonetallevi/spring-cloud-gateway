@@ -7,15 +7,19 @@ spring:
           uri: http://world:8081
           predicates:
             - Path=/world/api/v1/salutation/en
+            - Method=GET
 
         - id: hello_v1_salutation_en
           uri: http://hello:8082
           predicates:
             - Path=/hello/api/v1/salutation/en/{name}
+            - Method=GET
 
         - id: hello_rewrite_en
           uri: http://hello:8082
           predicates:
             - Path=/hello/{name}
+            - Method=GET
           filters:
             - RewritePath=/hello/(.*), /hello/api/v1/salutation/en/$1
+
